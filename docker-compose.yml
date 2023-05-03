@@ -1,0 +1,69 @@
+# Use this tool to format your yml files
+# https://jsonformatter.org/yaml-formatter
+
+version: '3.8'
+
+volumes:
+  data:
+
+services:
+  postgres:
+    image: 'postgres:13'
+    restart: always
+    container_name: backend_postgres
+    ports:
+      - 5434:5432
+    env_file:
+      - ./backend/.env
+    networks:
+      - transcendance_ntw
+    volumes:
+      # - ./database:/var/lib/postgresql/data
+      - data:/var/lib/postgresql/data
+
+  backend:
+    container_name: backend_nestjs
+    restart: unless-stopped
+    image: transcendance-api:1.0.0
+    build:
+      context: backend
+      target: development
+      dockerfile: Dockerfile
+    ports:
+      - 3333:3333
+      - 5555:5555
+      - 4343:4343
+      - 5252:5252
+      # debugging port
+      - 9229:9229
+    environment:
+      NODE_OPTIONS: --trace-deprecation
+    networks:
+      - transcendance_ntw
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - postgres
+
+  frontend:
+    container_name: frontend_reactjs
+    restart: unless-stopped
+    image: transcendance-client:1.0.0
+    build:
+      context: frontend
+      target: development
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
+    ports:
+      - 3000:3000
+    networks:
+      - transcendance_ntw
+    depends_on:
+      - backend
+    environment:
+      - CHOKIDAR_USEPOLLING=true 
+
+networks:
+  transcendance_ntw:
+    driver: bridge

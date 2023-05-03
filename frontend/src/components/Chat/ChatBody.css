@@ -1,0 +1,43 @@
+.main__chatbody{
+    background-image: url("/boruto.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: inline-flex;
+    overflow: auto;
+}
+
+@media (max-width:1000px){
+    .main__chatbody {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        flex-direction: row;
+        overflow: auto;
+    }
+    .content__footer{
+        height:100px;
+    }
+    .main__chatlist {
+        min-width: 200px;
+        width: 30%;
+        height: 100%;
+        scroll-snap-align: start;
+    }
+    .main__chatcontent {
+        min-width: 200px;
+        width: 100%;
+        height: 100%;
+        scroll-snap-align: center;
+    }
+    .main__userlist{
+        min-width: 200px;
+        width: 20% !important;
+        height: 100%;
+        scroll-snap-align: start;
+    }
+}

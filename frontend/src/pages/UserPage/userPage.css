@@ -1,0 +1,87 @@
+.UserPage{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+#UserAvatar {
+  width: 150px;
+  height: 150px;
+  vertical-align: middle;
+  border: #f8f8f8 3px solid;
+  margin: 10px 10px;
+}
+
+#LoadingAvatar {
+  width: 150px;
+  height: 150px;
+  vertical-align: middle;
+  margin: 10px 10px;
+}
+
+.UserPage_header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: rgb(24, 23, 23);
+  border-bottom: #faf9f9 1px solid;
+  padding: 10px 10px;
+}
+
+#UserAvatar {
+  width: 150px;
+  height: 150px;
+  vertical-align: middle;
+  border: #f8f8f8 4px solid;
+  margin: 10px 10px;
+}
+
+.UserPage_info {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+}
+.UserPage_header h1 {
+    color: #e5e7ea;
+    text-shadow: #040505 1px 2px 3px;
+    margin-top: 0;
+}
+.buttonList {
+  display: flex;
+  gap: 15px;
+}
+
+.UserPage_stats {
+  background-size: cover;
+  background-image: url("/hinata.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-y: scroll;
+  background-color: rgba(132, 132, 139, 0.568); 
+  flex-grow: 1;
+  padding: 30px 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.userStatus {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.userStatus.online {
+  background-color: #00fc3f;
+}
+
+.userStatus.offline {
+  background-color: red;
+}
+
+.userStatus.ingame {
+  background-color: orange;
+}

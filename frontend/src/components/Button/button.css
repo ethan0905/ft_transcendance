@@ -1,0 +1,22 @@
+/* CSS */
+.button-31 {
+    background-color: #282433;
+    font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+    border-radius: 7px;
+    border-style: none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 12px 30px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    width: 100%;
+  }
+  
+  .button-31:hover,
+  .button-31:focus {
+    background-color: #b72819;
+  }
